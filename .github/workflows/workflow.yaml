@@ -12,11 +12,11 @@ jobs:
   runs-on: ubuntu-latest
   
   steps:
-   - name: 
+   - name: Base
      run:  base-revision  main 
-   - name: 
+   - name: Run frontend and backend
      run: |
       frontend/.* run-frontend true  
       backend/.* run-backend true 
-   - name: 
+   - name: Config path
      run: config-path  ".circleci/dynamic_config.yml" 
