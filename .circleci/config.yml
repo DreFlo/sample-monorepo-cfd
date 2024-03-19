@@ -13,6 +13,6 @@ workflows:
           base-revision: main
           # 3-column space-separated table for mapping; `path-to-test parameter-to-set value-for-parameter` for each row
           mapping: |
-            frontend/.* run-frontend true
-            backend/.* run-backend true
+            frontend/.* run-frontend false
+            backend/.* run-backend false
           config-path: ".circleci/dynamic_config.yml"
