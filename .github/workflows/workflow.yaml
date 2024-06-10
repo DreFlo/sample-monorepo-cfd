@@ -1,40 +1,18 @@
-name: Vue
+name: "backend-test"
 
-
-on: [ push ]
-
-
+on:
+  workflow_dispatch:
 
 jobs:
- frontend-test:
-  if:  vars.runfrontend
-  
-  runs-on: ubuntu-latest
-  
-  container:
-   image: node:18
-   env:
-    NODE_ENV: development  
-  
-  
-  steps:
-   - uses: actions/checkout@v4
-   - run: node/install-packages 
-   - run: npm  test 
-  
-  
-  
-  
- backend-test:
-   if:  vars.runbackend
-   
-   runs-on: ubuntu-latest
-   
-   container:
-    image: cimg/python:3.10.5
-    options: --user  root  
-   
-   steps:
-    - uses: actions/checkout@v4
-    - run: pip install -r requirements.txt 
-    - run: pytest
+  backend-test:
+    name: "backend-test"
+    runs-on:
+    - "ubuntu-latest"
+    container:
+      image: "cimg/python:3.8"
+    steps:
+    - uses: "actions/checkout@v4"
+    - run: "pip install -r requirements.txt"
+    - 
+      run: "pytest"
+      name: "Run tests"
