@@ -10,6 +10,7 @@ jobs:
     - "ubuntu-latest"
     container:
       image: "cimg/node:15.1"
+      options: --user root
     steps:
     - uses: "actions/checkout@v4"
     - run: "npm install"
